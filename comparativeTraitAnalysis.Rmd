@@ -1,0 +1,419 @@
+---
+title: ' '
+date: "7/19/2022"
+output:
+  html_document:
+    theme:
+      bootswatch: minty
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Load libraries  
+```{r, message=FALSE }
+#tinytex::install_tinytex()
+#library(tinytex)
+library(magrittr)
+library(dplyr)
+#library(tidyverse)
+library(picante)
+library(geiger)
+library(phytools)
+library(ggplot2)
+```
+
+#### Filepaths and set wd
+```{r }
+setwd("C:/Users/Ali_Tew/OneDrive - University of North Carolina at Charlotte/Documents/R")
+tree<-read.tree("notothenioid_timetree.tre")
+eyeData<-read.csv("NotothenioidEyeSize.csv")
+```
+  
+#### Read in data and summarize the traits
+```{r }
+#get the average measurement per species
+updatedData<-eyeData %>% group_by(Name_in_tree) %>% mutate(
+  meanEye=mean(c(Eye.Size,Eye.Size.1,Eye.Size.2), na.rm=TRUE),
+  meanBodyLength=mean(c(Head.Length,Head.Length.1,Head.Length.2), na.rm=TRUE),
+  meanBodyDepth=mean(c(Body.Depth,Body.Depth.1,Body.Depth.2), na.rm=TRUE))
+```
+
+#### Let's look at traits compared to the phylogeny
+```{r, message=FALSE, warning=FALSE }
+#match the tree and the trait of interest
+eyedata<-updatedData$meanEye
+names(eyedata)<-updatedData$Timetree_Name
+td<-treedata(tree, eyedata)
+eyeSize<-as.data.frame(td$data)
+
+#subsample datasheet to remove anything not in tree
+inTreeData<-updatedData[updatedData$Timetree_Name%in%rownames(eyeSize),]
+```
+
+#### pgls to see if mean eye diameter is correlated with mean body length
+```{r, message=FALSE, warning=FALSE }
+#first get object of taxa names for setting correlation structure
+noto.names<-row.names(eyeSize)
+
+#then set correlation structure for pgls
+bm<-corBrownian(1, td$phy, form=~noto.names)
+
+#now fit model
+modelo1<-gls(meanEye~meanBodyLength, data=inTreeData, correlation=bm)
+summary(modelo1)
+inTreeData %>% ggplot(aes(x=log(meanBodyLength), y=meanEye)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+
+#get residuals
+resEye<-as.vector(modelo1$residuals)
+names(resEye)<-inTreeData$Timetree_Name
+
+#barplot with tree
+plotTree.barplot(td$phy,resEye)
+```
+
+#### pgls to see if mean eye diameter is correlated with mean body depth
+```{r, message=FALSE, warning=FALSE }
+bm<-corBrownian(1, td$phy, form=~noto.names)
+modelo2<-gls(meanEye~meanBodyDepth, data=inTreeData, correlation=bm)
+summary(modelo2)
+inTreeData %>% ggplot(aes(x=log(meanBodyDepth), y=meanEye)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+
+#get residuals
+resEye2<-as.vector(modelo2$residuals)
+names(resEye2)<-inTreeData$Timetree_Name
+
+#barplot with tree
+plotTree.barplot(td$phy,resEye2)
+```
+
+#### pgls to see if residual eye size is correlated with residual body depth
+```{r, message=FALSE, warning=FALSE }
+#get residuals of eye size on standard length
+bodyLength<-inTreeData$meanBodyLength
+Eye<-inTreeData$meanEye
+eye.fit<-glm(bodyLength~Eye)
+eye.res<-residuals(eye.fit)
+
+#get residuals of body depth on standard length
+bodyDepth<-inTreeData$meanBodyDepth
+depth.fit<-glm(bodyLength~bodyDepth)
+depth.res<-residuals(depth.fit)
+
+res.data<-as.data.frame(cbind(eye.res,depth.res))
+row.names(res.data)<-row.names(eyeSize)
+
+#fit model
+
+bm<-corBrownian(1, td$phy, form=~noto.names)
+modelo3<-gls(eye.res~depth.res, data=res.data, correlation=bm)
+summary(modelo3)
+res.data %>% ggplot(aes(x=log(depth.res), y=eye.res)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+```
+
+#### pgls if residual eye size is correlated with depth (avg for main text, plots of mean, min, and max for supplemental materials)
+```{r, message=FALSE, warning=FALSE }
+#avg depth
+avgDepth<-as.data.frame(cbind(eye.res,inTreeData$AMLR1998.2018_AvgDepth))
+row.names(avgDepth)<-row.names(eyeSize)
+avgDepth<-na.omit(avgDepth)
+colnames(avgDepth)[2]<-"average.depth"
+
+avgDepth.tax<-row.names(avgDepth)
+avgDepth.tree<-keep.tip(tree,avgDepth.tax)
+
+bm<-corBrownian(1, avgDepth.tree, form=~avgDepth.tax)
+modelo4<-gls(eye.res~average.depth, data=avgDepth, correlation=bm)
+summary(modelo4)
+avgDepth %>% ggplot(aes(x=log(average.depth), y=eye.res)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+
+#min depth
+minDepth<-as.data.frame(cbind(eye.res,inTreeData$Eastman2017_MinDepth))
+row.names(minDepth)<-row.names(eyeSize)
+minDepth<-na.omit(minDepth)
+colnames(minDepth)[2]<-"min.depth"
+
+minDepth.tax<-row.names(minDepth)
+minDepth.tree<-keep.tip(tree,minDepth.tax)
+
+bm<-corBrownian(1, minDepth.tree, form=~minDepth.tax)
+modelo5<-gls(eye.res~min.depth, data=minDepth, correlation=bm)
+summary(modelo5)
+minDepth %>% ggplot(aes(x=log(min.depth), y=eye.res)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+
+#max depth
+maxDepth<-as.data.frame(cbind(eye.res,inTreeData$Eastman2017_MaxDepth))
+row.names(maxDepth)<-row.names(eyeSize)
+maxDepth<-na.omit(maxDepth)
+colnames(maxDepth)[2]<-"max.depth"
+
+maxDepth.tax<-row.names(maxDepth)
+maxDepth.tree<-keep.tip(tree,maxDepth.tax)
+
+bm<-corBrownian(1, maxDepth.tree, form=~maxDepth.tax)
+modelo6<-gls(eye.res~max.depth, data=maxDepth, correlation=bm)
+summary(modelo6)
+maxDepth %>% ggplot(aes(x=log(max.depth), y=eye.res)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+```
+
+#### pgls if residual eye size is correlated with buoyancy
+```{r, message=FALSE, warning=FALSE }
+#avg buoyancy - proxy for water column niche use
+MeanBuoy<-as.data.frame(cbind(eye.res,inTreeData$MeanBuoy))
+row.names(MeanBuoy)<-row.names(eyeSize)
+MeanBuoy<-na.omit(MeanBuoy)
+colnames(MeanBuoy)[2]<-"avg.buoy"
+
+MeanBuoy.tax<-row.names(MeanBuoy)
+MeanBuoy.tree<-keep.tip(tree,MeanBuoy.tax)
+
+bm<-corBrownian(1, MeanBuoy.tree, form=~MeanBuoy.tax)
+modelo7<-gls(eye.res~avg.buoy, data=MeanBuoy, correlation=bm)
+summary(modelo7)
+MeanBuoy %>% ggplot(aes(x=log(avg.buoy), y=eye.res)) + 
+  geom_point() +
+  geom_smooth(method=lm,  linetype="dashed",
+              color="darkred", fill="blue")
+
+```
+
+#### generate a phylomorphospace of the above
+```{r, message=FALSE, warning=FALSE }
+#prepare dataframe
+all.traits<-cbind(inTreeData$AMLR1998.2018_AvgDepth,inTreeData$Eastman2017_MinDepth,inTreeData$Eastman2017_MaxDepth,inTreeData$MeanBuoy,res.data)
+rownames(all.traits)<-rownames(eyeSize)
+complete.traits<-na.omit(all.traits)
+
+#prune tree to match data
+PCA.tips<-row.names(complete.traits)
+pPCA.tree<-keep.tip(tree,PCA.tips)
+
+#conduct phylo pca
+noto.pPCA<-phyl.pca(pPCA.tree,complete.traits,mode="cov")
+attributes(noto.pPCA)
+noto.pPCA$V
+pPCA.PCscores<-noto.pPCA$S
+row.names(pPCA.PCscores)<-row.names(complete.traits)
+
+#or conduct regular pca
+noto.PCA<-prcomp(complete.traits)
+#get loadings
+aload2 <- abs(noto.PCA$rotation)
+sweep(aload2, 2, colSums(aload2), "/")
+PCA.PCscores<-noto.PCA$x
+row.names(PCA.PCscores)<-row.names(complete.traits)
+
+#make contmap with color coded branches
+AA<-contMap(pPCA.tree, pPCA.PCscores[,1])
+
+# check to verify that temporal information is correct
+phylomorphospace(AA$tree,pPCA.PCscores[,c(1,2)],colors=AA$cols,lwd=3, node.by.map=TRUE,xlab="PC 1",ylab="PC 2 ")
+```
+
+#### plot a phenogram of ecology reconstructed on the tree with residual eye size
+```{r, message=FALSE, warning=FALSE }
+#average depth
+#data manipulation to get traits of interest
+depths<-avgDepth$average.depth
+names(depths)<-row.names(avgDepth)
+
+eyes<-avgDepth$eye.res
+names(eyes)<-row.names(avgDepth)
+
+#make contmap with branches color-coded to reflect average depth
+depthTree<-contMap(avgDepth.tree, depths)
+
+#plot phenogram
+phenogram(depthTree$tree, eyes, colors=depthTree$cols)
+
+#minimum depth
+#data manipulation to get traits of interest
+min.depths<-minDepth$min.depth
+names(min.depths)<-row.names(minDepth)
+
+min.eyes<-minDepth$eye.res
+names(min.eyes)<-row.names(minDepth)
+
+#make contmap with branches color-coded to reflect average depth
+min.depthTree<-contMap(minDepth.tree, min.depths)
+
+#plot phenogram
+phenogram(min.depthTree$tree, min.eyes, colors=min.depthTree$cols)
+
+#maximum depth
+#data manipulation to get traits of interest
+max.depths<-maxDepth$max.depth
+names(max.depths)<-row.names(maxDepth)
+
+max.eyes<-maxDepth$eye.res
+names(max.eyes)<-row.names(maxDepth)
+
+#make contmap with branches color-coded to reflect average depth
+max.depthTree<-contMap(maxDepth.tree, max.depths)
+
+#plot phenogram
+phenogram(max.depthTree$tree, max.eyes, colors=max.depthTree$cols)
+
+#average buoyancy
+#data manipulation to get traits of interest
+avg.buoy<-MeanBuoy$avg.buoy
+names(avg.buoy)<-row.names(MeanBuoy)
+
+buoy.eyes<-MeanBuoy$eye.res
+names(buoy.eyes)<-row.names(MeanBuoy)
+
+#make contmap with branches color-coded to reflect average depth
+avg.buoyTree<-contMap(MeanBuoy.tree, avg.buoy)
+
+#plot phenogram
+phenogram(avg.buoyTree$tree, buoy.eyes, colors=avg.buoyTree$cols)
+
+```
+
+#### disparity through time analyses for residual eye size, depth, and buoyancy
+```{r, message=FALSE, warning=FALSE }
+#create unique variables for each of the traits and omit species with missing data for traits
+eye.size<-as.matrix(eye.res)
+row.names(eye.size)<-inTreeData$Timetree_Name
+#remove species with missing data
+eye.size<-na.omit(eye.size)
+
+depth<-as.matrix(inTreeData$AMLR1998.2018_AvgDepth)
+row.names(depth)<-inTreeData$Timetree_Name
+depth<-na.omit(depth)
+
+buoy<-as.matrix(inTreeData$MeanBuoy)
+row.names(buoy)<-inTreeData$Timetree_Name
+buoy<-na.omit(buoy)
+
+####perform disparity through time analyses for each trait 
+
+#first prune tree such that tips match species for which we have trait data
+eye.tax<-row.names(eye.size)
+eye.tree<-keep.tip(tree, eye.tax)
+
+#perform disparity through time analysis, calculating Morphological Disparity Index for only the first 80% of the phylogeny
+dtt_eyeSize<-dtt(phy=eye.tree, data=eye.size, mdi.range=c(0.2,1), nsim=10000, plot=TRUE, calculateMDIp = TRUE)
+dtt_eyeSize$MDI
+dtt_eyeSize$MDIpVal
+
+
+##depth
+
+depth.tax<-row.names(depth)
+depth.tree<-keep.tip(tree, depth.tax)
+
+dtt_depth<-dtt(phy=depth.tree, data=depth, mdi.range=c(0.2,1), nsim=10000, plot=TRUE, calculateMDIp = TRUE)
+dtt_depth$MDI
+dtt_depth$MDIpVal
+
+
+##size
+
+buoy.tax<-row.names(buoy)
+buoy.tree<-keep.tip(tree, buoy.tax)
+
+dtt_buoy<-dtt(phy=buoy.tree, data=buoy, mdi.range=c(0.2,1), nsim=10000, plot=TRUE, calculateMDIp = TRUE)
+dtt_buoy$MDI
+dtt_buoy$MDIpVal
+
+```
+
+#### calculating phylogenetic signal in traits
+```{r, message=FALSE, warning=FALSE }
+###eye size
+
+#using Blomberg et al's K
+
+eyeK<-phylosig(eye.tree, eye.size, method="K", nsim=1000)
+eyeK
+
+eyeK.test<-phylosig(eye.tree, eye.size, method="K", test=TRUE, nsim=10000)
+eyeK.test
+
+plot(eyeK.test)
+
+#using Pagel's lambda
+
+eyeLambda<-phylosig(eye.tree, eye.size, method = "lambda")
+eyeLambda
+
+eyeLambda.test<-phylosig(eye.tree, eye.size, method = "lambda", test=TRUE)
+eyeLambda.test
+
+plot(eyeLambda.test)
+
+###depth
+
+#using Blomberg et al's K
+
+depthK<-phylosig(depth.tree, depth, method="K", nsim=1000)
+depthK
+
+depthK.test<-phylosig(depth.tree, depth, method="K", test=TRUE, nsim=10000)
+depthK.test
+
+plot(depthK.test)
+
+#using Pagel's lambda
+
+depthLambda<-phylosig(depth.tree, depth, method = "lambda")
+depthLambda
+
+depthLambda.test<-phylosig(depth.tree, depth, method = "lambda", test=TRUE)
+depthLambda.test
+
+plot(depthLambda.test)
+
+
+###buoyancy
+
+#using Blomberg's K
+
+#using Blomberg et al's K
+
+buoyK<-phylosig(buoy.tree, buoy, method="K", nsim=1000)
+buoyK
+
+buoyK.test<-phylosig(buoy.tree, buoy, method="K", test=TRUE, nsim=10000)
+buoyK.test
+
+plot(buoyK.test)
+
+#using Pagel's lambda
+
+buoyLambda<-phylosig(buoy.tree, buoy, method = "lambda")
+buoyLambda
+
+buoyLambda.test<-phylosig(buoy.tree, buoy, method = "lambda", test=TRUE)
+buoyLambda.test
+
+plot(buoyLambda.test)
+
+```
+
+
+
+
+
+
+
