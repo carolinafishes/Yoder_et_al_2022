@@ -2,7 +2,7 @@
 
 Supplemental Electronic Data files for Yoder et al 2022:
 
-Decoupled spectral tuning and eye size diversification patterns in an Antarctic adaptive radiation
+Multiple pathways of visual adaptations for water column usage in an Antarctic adaptive radiation
 
 Ella B. Yoder1,2, Elyse Parker3, Alexandria Tew1, Christopher D. Jones4, Alex Dornburg1*
 
