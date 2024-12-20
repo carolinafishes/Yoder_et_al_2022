@@ -19,6 +19,6 @@ This directory contains the time calibrated phylogeny, raw trait data, and code 
 
 ~/notothenioid_timetree.tre is the timetree used in analyses
 
-~/TraitData.xlsx is all the trait data 
+~/NotothenioidEyeSize.csv contains all the trait data 
 
-~/comparativeTraitAnalysis.Rmd contains the code used for the phylogenetic comparative analyses
+~/comparativeEyeAnalysis.Rmd contains the code used for the phylogenetic comparative analyses

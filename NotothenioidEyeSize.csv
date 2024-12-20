@@ -1,0 +1,64 @@
+Family,Genus,Species,Standard Length,Eye Size,Body Depth,Head Length,Standard Length,Eye Size,Body Depth,Head Length,Standard Length,Eye Size,Body Depth,Head Length,Name_in_tree,Collection Number,Timetree_Name,AMLR1998-2018_AvgDepth,Eastman2017_MinDepth,Eastman2017_MaxDepth,Eastman2020_niche,MeanBuoy
+Channichthyidae,Chaenocephalus,aceratus,15.61,1.08,1.98,5.327,15.98,1.13,2.14,4.916,27.04,1.64,4.41,8.897,Chaenocephalus_aceratus,YPM 24284,Chaenocephalus_aceratus,190.6323175,5,770,Demersal,3.19
+Channichthyidae,Chaenodraco,wilsoni,22.32,1.194,4.39,5.974,21.24,1.39,3.43,6.561,22.73,1.57,3.64,7.415,Chaenodraco_wilsoni,YPM 24286 % 21474 % 16641,Chaenodraco_wilsoni,279.7272727,50,800,Demersal,3.08
+Channichthyidae,Champsocephalus,gunnari,23.09,1.25,3.85,5.375,17.19,1.07,2.27,4.217,21.57,1.23,2.99,5.827,Champsocephalus_gunnari,YPM 21535 % 21536 % 20242,Champsocephalus_gunnari,213.390958,0,700,Demersal,2.9
+Channichthyidae,Chionobathyscus,dewitii,20.87,1.25,3.5,6.679,19.53,1.21,3.06,6.807,25.13,1.51,5.31,8.472,Chionobathyscus_dewitti,YPM 20010 % 20011 % 24123,Chionobathyscus_dewitti,388.75,358,2025,Semipelagic,1.22
+Channichthyidae,Chionodraco,rastrospinosus,10.7,0.73,1.77,4.026,21.7,1.53,3.64,7.255,16.17,1.08,2.82,5.971,Chionodraco_rastrospinosus,YPM 22341 % 20052,Chionodraco_rastrospinosus,277.2239712,200,1000,Demersal,3.12
+Channichthyidae,Cryodraco,antarcticus,27.655,1.26,3.606,7.847,16.632,0.685,1.974,4.658,18.656,1.164,1.91,5.836,Cryodraco_antarcticus,YPM 22605 % YPM 16521 % YPM 22492,Cryodraco_antarcticus,365.7977099,300,800,Demersal,2.53
+Channichthyidae,Dacodraco,hunteri,21.18,1.29,3.53,6.824,9.424,0.485,1.234,3.447,,,,,Dacodraco_hunteri,YPM 22338 % YPM 16569,Dacodraco_hunteri,759,300,926,Semipelagic,1.28
+Channichthyidae,Neopagetopsis,ionah,18.2,1.16,2.68,,17.29,0.94,2.57,5.3,16.5,0.787,2.262,4.882,Neopagetopsis_ionah,YPM 22538,,358.8333,20,1587,Semipelagic,
+Channichthyidae,Pagetopsis,macropterus,23.5,1.77,4.61,8.062,20.33,1.88,4.09,7.845,15.38,1.24,2.47,5.253,Pagetopsis_macropterus,YPM 22335 % YPM 16510 % 20477,Pagetopsis_macropterus,218.3666667,5,752,Demersal,2.38
+Channichthyidae,Pseudochannichthys,georgianus,28.82,1.86,6.63,10.087,11.349,0.951,2.449,4.449,11.375,0.976,2.243,4.755,Pseudochaenichthys_georgianus,YPM 22601 % YPM 22524 % YPM 16637,Pseudochaenichthys_georgianus,225.3333333,0,475,Semipelagic,1.96
+Nototheniidae,Gobionotothen,gibberifrons,16.147,1.104,2.559,4.376,18.664,1.322,2.878,4.783,18.776,1.115,3.427,3.921,Gobionotothen_gibberifrons,YMP 16629 % YMP 20779 % YMP 20724,20777_Gobio_gib,227.4612546,5,750,Demersal,4.54
+Nototheniidae,Lepidonotothen,nudifrons,14.45,1.19,3.24,3.949,13.46,1.19,3.33,3.412,13.831,1.052,3.861,3.995,Lepidonotothen_nudifrons,YPM 21496,3844_Lep_nud_sandwich,166.5684,5,350,Demersal,4.46
+Nototheniidae,Patagonotothen,sima,7.204,0.356,1.592,2.086,10.279,0.63,1.758,2.754,5.336,0.308,1.233,1.612,Patagonotothen_sima,YPM 20125,6911_pata_sima,,0,16,,
+Nototheniidae,Trematomus,newnesi,20.203,1.107,5.488,6.416,15.945,0.963,4.399,4.702,16.508,0.994,4.503,4.833,Trematomus_newnesi,YPM 20492 ,7712_Trem_newn,161.0928,0,400,Demersal,3.78
+Nototheniidae,Lepidonotothen,larsenii,16.894,1.236,3.361,4.838,19.083,1.364,4.326,6.067,15.998,1.37,3.35,4.728,Lepidonotothen_larsenii,YFTC 24132,20975_Lepidonotothen_larseni,297.9297,30,550,Benthic,5.62
+Nototheniidae,Lepidonotothen,squamifrons,29.78,1.907,7.936,7.613,20.339,0.9,4.345,5.781,21.028,1.586,5.408,6.226,Lepidonotothen_squamifrons,YMP 22548 % YMP 20490,4306_Lep_squa_elephant,300.3333,5,900,Demersal,3.2
+Nototheniidae,Patagonotothen,elegans,4.435,0.362,0.663,1.134,3.415,0.286,0.508,0.934,4.908,0.426,0.785,1.373,Patagonotothen_elegans,YMP 21588 % YMP 20076,3947_Patagonotothen_elegans,,10,256,,
+Nototheniidae,Patagonotothen,guntheri,13.889,0.93,3.203,3.903,14.751,1.016,3.304,4.426,10.358,0.728,2.022,2.889,Patagonotothen_guntheri,YPM 20072 % YMP 20077,24063_Pata_gun,,111,470,,
+Nototheniidae,Patagonotothen,tessellata,14.848,0.884,2.77,4.537,12.053,0.718,2.202,3.629,13.016,0.78,2.206,3.868,Patagonotothen_tessellata,YMP 20071,24054_Pata_tess,,0,141,Demersal,
+Nototheniidae,Patagonotothen,ramsayi,16.261,1.09,2.693,4.533,12.599,0.872,2.588,3.841,21.792,1.423,4.226,5.769,Patagonotothen_ramsayi,YMP 20124,4014_Pata_ram,,50,450,Demersal,3.38
+Nototheniidae,Trematomus,bernacchii,23.012,1.348,5.909,6.677,17.96,1.032,4.361,5.559,21.969,1.293,5.916,5.585,Trematomus_bernacchii,YMP 22595 % YMP 22400 % YMP 16652,4501_Trematomus_bernacchii,186.1,0,700,Demersal,3.52
+Nototheniidae,Trematomus,eulepidotus,20.576,1.325,5.058,5.923,20.038,1.391,4.837,5.5,19.106,1.494,4.435,5.503,Trematomus_eulepidotus,YMP 16496,7835_Trem_eulep,396.3683,70,823,Demersal,3.41
+Nototheniidae,Trematomus,hansoni,23.285,1.183,5.615,6.932,27.718,1.16,6.695,7.788,22.119,1.268,5.207,6.705,Trematomus_hansoni,YPM 20463 % YMP 22685,15045_Trem_hanson_amlr2006,375.7778,5,550,Demersal,3.12
+Nototheniidae,Trematomus,loenbergii,20.456,1.327,4.936,5.563,20.621,1.44,5.092,5.376,20.613,1.341,4.823,5.768,Trematomus_loenbergii,YMP 20018 % YMP 20019 % YMP 20020,12063_Trem_loehn,622.5,65,1243,Semipelagic,1.99
+Nototheniidae,Trematomus,nicolai,13.976,1.198,3.348,4.999,14.65,1.333,3.828,5.001,15.047,1.296,3.493,4.999,Trematomus_nicolai,YPM 18359,7997_Trematomus_nicolai,411.2857,0,460,Demersal,3.2
+Nototheniidae,Trematomus,pennelii,23.491,1.726,7.005,7.397,16.815,1.279,3.79,4.999,21.633,1.277,4.808,4.688,Trematomus_pennelii,YMP 24242 % YMP 16507,7807_Trem_penn,202.5455,0,732,Demersal,3.09
+Nototheniidae,Trematomus,scotti,11.233,1,2.721,3.303,12.163,1.099,2.983,3.35,9.241,0.954,2.326,3.001,Trematomus_scotti,YMP 24279,2035_Trematomus_scotti,343.15,20,793,Demersal,4.14
+Bathydraconidae,Bathydraco,marri,15.792,0.941,1.585,4.172,17.297,0.898,1.774,4.901,20.6,1.12,1.8,5.135,Bathydraco_marri,NMNZ P040098 ; YPM 22590 % 22477,13884_Bathydraco_marri,445.75,300,1250,Demersal,4.37
+Artedidraconidae,Dolloidraco,longedorsalis,9.21,0.65,1.94,2.259,11.273,1.141,2.821,3.696,11.202,1.221,2.57,3.413,Dolloidraco_longedorsalis,YFTC 12889 % YPM 12904 % YPMICH 20030 %,1793_Dolloidraco_longedorsalis,350.25,99,1243,Demersal,4.49
+Nototheniidae,Trematomus,tokarevi,17.889,1.475,4.201,5.884,28.432,2.43,7.191,9.681,15.924,1.212,3.555,5.077,Trematomus_tokarevi,YMP 22481 % YMP 20027 % YMP 22408,2340_Trematomus_tokarevi_2003,448.75,196,791,Demersal,2.77
+Artedidraconidae,Pogonophryne,macropogon,25.202,1.171,6.634,8.318,20.528,1.02,5.27,8.257,24.235,1.384,6.881,9.61,Pogonophryne_macropogon,NMNZ P042618 % YPM ICH 20495,15416_Pogo_macro,623,80,1947,Demersal,3.2
+Artedidraconidae,Pogonophryne,scotti,29.17,1.28,8.77,11.538,27.37,1.502,8.178,8.904,16.444,1.037,4.462,5.319,Pogonophryne_scotti,NMNZ P45673 % P43419 % 43370,15388_Pogo_scott,278.9375,100,1180,Demersal,3.8
+Artedidraconidae,Pogonophryne,marmorata,12.57,1.021,2.837,5.63,16.731,1.116,4.53,6.585,16.984,1.303,3.893,6.134,Pogonophryne_marmorata,YPM 07855 % UT11618 % 07853,2023_Pogonophryne_marmorata,351.2,140,1405,Demersal,3.81
+Artedidraconidae,Artedidraco,skottsbergi,9.221,0.61,1.865,2.221,11.21,0.819,2.296,3.452,8.84,0.714,1.721,2.876,Artedidraco_skottsbergi,NMNZ P43365 % P40034 % YPM 03-069,14513_Art_skot,225.6429,5,666,Benthic,5.4
+Bathydraconidae,Akarotaxis,nudiceps,13.062,0.667,1.841,3.599,13.849,0.61,1.785,3.874,14.96,0.588,2.48,3.923,Akarotaxis_nudiceps,YMP 24241 % YMP 20210 % YMP 20037,20928_Akarotaxis,328,371,1191,Demersal,3.84
+Artedidraconidae,Pogonophryne,immaculata,20.41,1.207,4.963,7.208,,,,,,,,,Pogonophryne_immaculata,NMNZ P042633,13849_Pogo_imm,,884,2542,,
+Artedidraconidae,Pogonophryne,fusca,27.003,1.263,6.295,12.468,,,,,,,,,Pogonophryne_fusca,no tag,9882_Pogonophryne_fusca,,,,,
+Artedidraconidae,Artedidraco,mirus,6.114,0.534,1.293,1.938,4.366,0.263,0.888,1.612,,,,,Artedidraco_mirus,no tag,3918_Art_mirus,,18,320,,
+Bathydraconidae,Bathydraco,antarcticus,19.613,1.075,2.442,6.074,19.133,1.026,2.126,5.721,,,,,Bathydraco_antarcticus,NMNZ P43669 % NMNZ P43670,13912_Bathydraco_antarcticus,435,340,2400,,
+Artedidraconidae,Pogonophryne,barsukovi,20.241,1.179,1.255,7.029,17.443,1.359,3.748,6.306,16.192,1.289,3.132,5.077,Pogonophryne_barsukovi,NMNZ P43539 % YPM 07844,7893_Pogonophryne_barsukovi,592.935,195,1120,Demersal,3.44
+Artedidraconidae,Pogonophryne,cerebropogon,19.633,1.124,3.975,8.477,,,,,,,,,Pogonophryne_cerebropogon,no tag,2184_Pogonophryne_cerebropogon,623,80,1947,Demersal,3.2
+Bathydraconidae,Bathydraco,macrolepis,24.747,1.402,3.567,8.045,19.879,1.205,2.69,6.198,,,,,Bathydraco_macrolepis,NMNZ P042270 % NMNZ P43387,13895_Bathydraco_macrolepis,,450,2100,Demersal,4.38
+Artedidraconidae,Histiodraco,velifer,14.753,1.155,3.264,5.91,,,,,,,,,Histiodraco_velifer,NMNZ P043412,14514_Histiodraco,,210,910,Demersal,3.7
+Harpagiferidae,Harpagifer,antarcticus,8.468,0.598,2.16,2.67,6.125,0.414,1.284,1.647,5.676,0.424,1.284,1.809,Harpagifer_antarcticus,YPM 20810 % 03-097 % 03-096,4271_Harpagifer_antarcticus,67.11268,0,5,Benthic,5.99
+Bathydraconidae,Bathydraco,scotiae,8.624,0.25,0.807,1.713,16.418,0.458,1.622,4.138,,,,,Bathydraco_scotiae,NMNZ P43758 % NMNZ P43759,,,,,,
+Bathydraconidae,Cygnodraco,mawsoni,42.055,1.543,5.388,14.68,,,,,,,,,Cygnodraco_mawsoni,NMNZ P40018 % NMNZ P4,2050_Cygnodraco_mawsoni,,85,475,,
+Bathydraconidae,Gerlachea,australis,23.112,1.378,2.757,7.1,22.671,1.189,2.496,6.029,23.405,1.035,2.925,6.297,Gerlachea_australis,YMP 16476 % YMP 16642 % NMNZ P43338,4417_Gerlachea,301,200,952,Demersal,3.29
+Bathydraconidae,Gymnodraco,acuticeps,16.608,0.826,2.311,5.534,21.966,1.075,2.565,7.648,20.423,0.936,3.212,6.723,Gymnodraco_acuticeps,YMP 16635 % YMP 22376 % NMNZ P43639,20895_Gymnodraco,331.0615385,0,1000,Demersal,3.38
+Bathydraconidae,Paracheanichthys,charcoti,23.001,1.058,2.489,7.035,18.595,0.858,1.762,6.893,17.27,0.953,2.025,6.795,Paracheanichthys_charcoti,YMP 22649 % YMP 22649_2 % YMP 22649_3,4494_Parachaenichthys_charcoti,157.6078431,5,480,Demersal,4.39
+Bathydraconidae,Paracheanichthys,georgianus,14.238,0.778,1.534,5.139,9.943,0.613,1.203,3.99,9.987,0.537,1.084,3.839,Paracheanichthys_georgianus,YMP 21533_1 % YMP 21533_2 % YMP 21533_3,3946_Parachaenichthys_georgianus,,5,350,Demersal,
+Bathydraconidae,Prionodraco,evansii,13.085,0.619,1.472,3.374,11.861,0.847,1.257,3.221,13.437,0.918,1.755,3.425,Prionodraco_evansii,YMP 22536 % YMP 22689 % YMP 24283,13915_Prionodraco_evansi,223.3333333,70,910,Demersal,4.21
+Bathydraconidae,Racovitzia,glacialis,22.796,1.069,2.887,6.461,22.836,1.128,2.783,5.77,27.558,1.6,3.713,6.756,Racovitzia_glacialis,YMP 16660 % YMP 20044 % YMP 22370,4449_Racovitzia,395.8,219,867,Demersal,4.08
+Bathydraconidae,Vomeridens,infuscipinnis,17.008,0.855,1.699,5.194,16.347,0.937,1.891,4.785,12.172,0.601,0.897,3.999,Vomeridens_infuscipinnis,YMP 22391_1 % YMP 22391_2 % YMP 22391_3,12879_Vomeridens,457,445,902,Semipelagic,1.61
+Nototheniidae,Pleuragramma,antarcticum,20.68,1.66,4.379,5.052,14.024,0.936,2.065,3.097,15.589,1.178,2.892,4,Pleurogramma_antarcticum,NMNZ P43380 % YPM 7748 % YPM 7732,2034_Pleuragramma_antarcticum,624.0685484,0,1000,Pelagic,0.34
+Nototheniidae,Notothenia,coriiceps,32.25,1.107,9.311,8.341,37.492,1.41,11.449,10.809,32.03,1.12,9.545,8.992,Notothenia_coriiceps,NMNZ P40097 % P40096,2030_Notothenia_coriiceps,178.1316514,0,550,Demersal,4.34
+Nototheniidae,Dissostichus,eleginoides,20.7,1.12,4.118,5.429,13.574,1.067,2.401,3.915,,,,,Dissostichus_eleginoides,NMNZ P37795 YPM ICH 17045,3928_D_ele,,0,2144,,
+Nototheniidae,Aethotaxis,mitopteryx,29.747,1.757,5.452,6.754,18.059,1.23,3.455,4.212,13.734,0.883,2.83,3.189,Aethotaxis_mitopteryx,NMNZ P43384 % NMNZ P43377 % YPM ICH 22552,16147_Aethotaxi,490.2,400,1500,Pelagic,0
+Nototheniidae,Trematomus,lepidorhinus,25.073,1.609,5.074,5.701,28.044,1.625,7.106,5.91,19.871,1.482,3.96,4.699,Trematomus_lepidorhinus,NMNZ P57959 % NMNZ P43658 % P43594,13948_Trematomus_lepidorhinus,,99,1658,,
+Nototheniidae,Dissostichus,mawsoni,47.75,1.917,9.412,9.894,41.12,2.43,7.75,8.727,23.069,1.247,3.628,6.89,Dissostichus_mawsoni,NMNZ P42631 % YPM ICH 20787,7738_Dissostichus_m,227.5,12,2210,Pelagic,0
+Channichthyidae,Chamspcephalus,esox,31.02,1.5,4.44,9.118,,,,,,,,,Champsocephalus_esox,no tag,Champsocephalus_esox,,0,250,,
+Nototheniidae,Trematomus,borchgrevinki,20.899,1.365,4.44,5.228,,,,,,,,,Trematomus_borchgrevinki,TA537PAB01,1393_Trematomus_borchgrevinki,213,0,72,Demersal,2.75
+Channichthyidae,Chionodraco ,hamatus,35.596,1.646,6.93,9.861,44.059,2.778,8.986,16.386,,,,,Chionodraco_hamatus,no tag,Chionodraco_hamatus,,4,972,,
+Channichthyidae,Chionodraco,myersi,27.124,1.8,4.79,9.244,27.817,2.344,5.501,10.782,,,,,Chionodraco_myersi,YMP 22339 % YMP 16533,Chionodraco_myersi,,,,,
